@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Gurusoft.Persistencia
 {
+    //Persistencia hacia nuestra BD
     public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : DbContext(options)
     {
         public DbSet<NumeroPrimo> NumeroPrimo { get; set; }

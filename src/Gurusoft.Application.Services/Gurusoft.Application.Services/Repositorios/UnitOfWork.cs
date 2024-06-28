@@ -4,6 +4,7 @@ using Gurusoft.Persistencia;
 
 namespace Gurusoft.Application.Services.Repositorios
 {
+    //Uso del patron de diseño UOW
     public class UnitOfWork : IUnitOfWork
     {
         private readonly ApplicationDbContext _context;

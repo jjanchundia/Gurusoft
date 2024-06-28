@@ -1,8 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Gurusoft.Application.Services.Interfaces;
+using System.Linq.Expressions;
 
 namespace Gurusoft.Application.Services.Repositorios
 {
+    //Uso del patron de diseño Repository
     public class Repository<T> : IRepository<T> where T : class
     {
         private readonly DbContext _context;
@@ -32,6 +34,11 @@ namespace Gurusoft.Application.Services.Repositorios
         public async Task<T> ObtenerPorId(int id)
         {
             return await _dbSet.FindAsync(id);
+        }
+
+        public async Task<T> Filtrar(Expression<Func<T, bool>> predicate)
+        {
+            return await _dbSet.Where(predicate).FirstOrDefaultAsync();
         }
     }
 }

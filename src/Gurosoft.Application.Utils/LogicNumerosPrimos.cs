@@ -1,5 +1,6 @@
 ﻿namespace Gurosoft.Application.Utils
 {
+    //Capa o clase para logica de Numeros Primos
     public static class LogicNumerosPrimos
     {
         public static int[] CalcularNumerosPrimos(int start, int count)
