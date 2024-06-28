@@ -6,4 +6,19 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Usuarios\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Gurosoft.Application.Utils\Gurosoft.Application.Utils.csproj" />
+    <ProjectReference Include="..\Gurusoft.Application.Dtos\Gurusoft.Application.Dtos.csproj" />
+    <ProjectReference Include="..\Gurusoft.Application.Services\Gurusoft.Application.Services\Gurusoft.Application.Services.csproj" />
+    <ProjectReference Include="..\Gurusoft.Domain\Gurusoft.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

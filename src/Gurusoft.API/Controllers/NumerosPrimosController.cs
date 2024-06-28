@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Gurusoft.Application.UseCases.NumerosPrimos;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -8,36 +10,19 @@ namespace Gurusoft.API.Controllers
     [ApiController]
     public class NumerosPrimosController : ControllerBase
     {
+        private readonly IMediator _mediator;
+
+        public NumerosPrimosController(IMediator mediator)
+        {
+            _mediator = mediator;
+        }
+
         // GET: api/<NumerosPrimosController>
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-
-        // GET api/<NumerosPrimosController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST api/<NumerosPrimosController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<IActionResult> SolicitarPermiso(CrearNumerosPrimos.CrearNumerosPrimosCommand command)
         {
-        }
-
-        // PUT api/<NumerosPrimosController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<NumerosPrimosController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            var response = await _mediator.Send(command);
+            return Ok(response);
         }
     }
 }
