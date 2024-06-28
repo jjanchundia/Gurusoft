@@ -18,6 +18,13 @@ namespace Gurusoft.API.Controllers
             _mediator = mediator;
         }
 
+        [HttpGet]
+        public async Task<IActionResult> ConsultarUsuarios()
+        {
+            var response = await _mediator.Send(new ConsultarListaUsuarios.ConsultarListaCommand());
+            return Ok(response);
+        }
+
         [HttpPost("register")]
         public async Task<IActionResult> CreateUsuario(CrearUsuario.CrearUsuarioCommand command)
         {

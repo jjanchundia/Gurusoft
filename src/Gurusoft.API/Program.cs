@@ -61,6 +61,7 @@ builder.Services.AddScoped<IRequestHandler<CrearNumerosPrimos.CrearNumerosPrimos
 builder.Services.AddScoped<IRequestHandler<ObtenerNumerosPrimos.ObtenerNumerosPrimosRequest, Result<List<NumeroPrimoDto>>>, ObtenerNumerosPrimos.Handler>();
 builder.Services.AddScoped<IRequestHandler<CrearUsuario.CrearUsuarioCommand, Result<UsuarioDto>>, CrearUsuario.Handler>();
 builder.Services.AddScoped<IRequestHandler<Login.LoginCommand, Result<UsuarioDto>>, Login.Handler>();
+builder.Services.AddScoped<IRequestHandler<ConsultarListaUsuarios.ConsultarListaCommand, Result<List<UsuarioDto>>>, ConsultarListaUsuarios.Handler>();
 
 builder.Services.AddMediatR(x => x.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
 
